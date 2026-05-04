@@ -1,0 +1,12 @@
+flask
+flask-cors
+flask-socketio
+flask-jwt-extended
+scikit-learn
+spacy
+joblib
+numpy
+pandas
+python-dotenv
+Werkzeug
+eventlet

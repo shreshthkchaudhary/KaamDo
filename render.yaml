@@ -1,0 +1,24 @@
+services:
+  # Backend Flask API
+  - type: web
+    name: kaamdo-backend
+    env: python
+    buildCommand: "cd backend && pip install -r requirements.txt && python notebooks/generate_notebooks.py"
+    startCommand: "cd backend && gunicorn app:app -b 0.0.0.0:$PORT -k eventlet -w 1"
+    envVars:
+      - key: CORS_ORIGINS
+        value: "https://kaamdo-frontend.onrender.com"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+
+  # Frontend React App
+  - type: web
+    name: kaamdo-frontend
+    env: static
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "./dist"
+    envVars:
+      - key: VITE_API_URL
+        value: "https://kaamdo-backend.onrender.com/api"
