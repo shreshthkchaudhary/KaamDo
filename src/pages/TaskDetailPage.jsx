@@ -143,7 +143,7 @@ export default function TaskDetailPage() {
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fadeInUp">
       {/* Task Header */}
       <div className="glass-card p-8 mb-6">
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               {task.category && (
@@ -162,7 +162,7 @@ export default function TaskDetailPage() {
             </div>
             <h1 className="text-2xl md:text-3xl font-bold font-[Syne] text-dark">{task.title}</h1>
           </div>
-          <div className="text-right">
+          <div className="text-left sm:text-right">
             <p className="text-3xl font-bold text-primary font-[Syne]">₹{task.budget}</p>
             {task.suggested_price_min && (
               <p className="text-xs text-text-muted mt-1">
@@ -174,7 +174,7 @@ export default function TaskDetailPage() {
 
         <p className="text-text-muted leading-relaxed mb-4">{task.description}</p>
 
-        <div className="flex items-center gap-4 text-sm text-text-muted">
+        <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
           <span>📍 {task.lat?.toFixed(4)}, {task.lng?.toFixed(4)}</span>
           <span>📏 {task.radius_km} km radius</span>
           <span>👤 Posted by {task.poster_name}</span>

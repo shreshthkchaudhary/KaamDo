@@ -26,16 +26,16 @@ export default function Navbar() {
           </Link>
 
           {/* Nav links */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 overflow-x-auto pb-1 md:pb-0 scrollbar-hide flex-nowrap max-w-[55vw] sm:max-w-none">
             {user ? (
               <>
-                <Link
-                  to="/home"
-                  className="px-3 py-2 text-sm font-medium text-text-muted hover:text-primary
-                             transition-colors duration-200"
-                >
-                  Tasks
-                </Link>
+                  <Link
+                    to="/home"
+                    className="px-3 py-2 text-sm font-medium text-text-muted hover:text-primary
+                               transition-colors duration-200 whitespace-nowrap"
+                  >
+                    Tasks
+                  </Link>
 
                 {user.role === 'poster' && (
                   <Link
@@ -52,7 +52,7 @@ export default function Navbar() {
                   <Link
                     to="/worker/dashboard"
                     className="px-3 py-2 text-sm font-medium text-text-muted hover:text-primary
-                               transition-colors duration-200"
+                               transition-colors duration-200 whitespace-nowrap"
                   >
                     Dashboard
                   </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
                 <Link
                   to={`/profile/${user.id}`}
                   className="px-3 py-2 text-sm font-medium text-text-muted hover:text-primary
-                             transition-colors duration-200"
+                             transition-colors duration-200 whitespace-nowrap"
                 >
                   Profile
                 </Link>
@@ -75,7 +75,7 @@ export default function Navbar() {
                 </button>
 
                 {/* User avatar */}
-                <div className="w-9 h-9 rounded-full bg-primary-50 flex items-center justify-center
+                <div className="w-9 h-9 shrink-0 rounded-full bg-primary-50 flex items-center justify-center
                                 text-sm font-semibold text-primary border-2 border-primary/20">
                   {user.name?.charAt(0)?.toUpperCase()}
                 </div>

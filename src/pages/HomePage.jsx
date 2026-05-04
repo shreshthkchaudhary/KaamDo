@@ -61,7 +61,7 @@ export default function HomePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-3xl font-bold font-[Syne] text-dark">
             {user?.role === 'worker' ? 'Available Tasks' : 'Task Feed'}
@@ -92,7 +92,7 @@ export default function HomePage() {
       {/* Map + List layout */}
       <div className="grid lg:grid-cols-5 gap-6">
         {/* Map */}
-        <div className="lg:col-span-3 h-[450px] rounded-2xl overflow-hidden shadow-lg">
+        <div className="lg:col-span-3 h-[300px] lg:h-[450px] rounded-2xl overflow-hidden shadow-lg relative z-0">
           <MapContainer center={center} zoom={12} className="h-full w-full">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a>'
@@ -141,7 +141,7 @@ export default function HomePage() {
           </div>
 
           {/* Task cards */}
-          <div className="space-y-4 max-h-[380px] overflow-y-auto pr-2 stagger">
+          <div className="space-y-4 max-h-[400px] lg:max-h-[380px] overflow-y-auto pr-2 stagger">
             {loading ? (
               <div className="text-center py-12 text-text-muted">Loading tasks...</div>
             ) : filteredTasks.length === 0 ? (
