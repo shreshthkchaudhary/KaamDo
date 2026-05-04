@@ -3,6 +3,7 @@ services:
   - type: web
     name: kaamdo-backend
     env: python
+    plan: free
     buildCommand: "cd backend && pip install -r requirements.txt && python notebooks/generate_notebooks.py"
     startCommand: "cd backend && gunicorn app:app -b 0.0.0.0:$PORT -k eventlet -w 1"
     envVars:
@@ -17,6 +18,7 @@ services:
   - type: web
     name: kaamdo-frontend
     env: static
+    plan: free
     buildCommand: "npm install && npm run build"
     staticPublishPath: "./dist"
     envVars:
