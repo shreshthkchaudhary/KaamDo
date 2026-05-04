@@ -10,3 +10,5 @@ pandas
 python-dotenv
 Werkzeug
 eventlet
+nbformat  
+ 
